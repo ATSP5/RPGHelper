@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace WpfApp1
 {
@@ -12,10 +13,12 @@ namespace WpfApp1
         /// ///////////////////////////////////////TO DO Dodać obrazek do klasy!!!
         /// </summary>
         private string Name;
+        private string Owner;
         private float LivePercentage;
         private int MaxLivePoints;
         private int ActualLivePoints;
         private int Iniciative;
+        private BitmapImage Alias;
 
         public Character(string name, int LivePoints, int initiative)
         {
@@ -24,6 +27,17 @@ namespace WpfApp1
             ActualLivePoints = LivePoints;
             CalculateLivePercentage();
             Iniciative = initiative;
+        }
+
+        public string owner_
+        {
+            get { return Owner; }
+            set { Owner = owner_; }
+        }
+        public BitmapImage alias_
+        {
+            get { return Alias; }
+            set { Alias = alias_; }
         }
 
         public string name_
