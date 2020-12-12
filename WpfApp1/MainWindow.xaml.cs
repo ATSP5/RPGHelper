@@ -132,7 +132,7 @@ namespace WpfApp1
 
         private void ApplyChanges_Click(object sender, RoutedEventArgs e) // TO DO Nie update'uje wartości w liście!
         {
-            ListOfCharacters[CharactersList.SelectedIndex].name_ = NameField.Text;
+           ListOfCharacters[CharactersList.SelectedIndex].name_ = NameField.Text;
            ListOfCharacters[CharactersList.SelectedIndex].allignment_ = AlignmentField.Text;
            ListOfCharacters[CharactersList.SelectedIndex].owner_ = OwnerNameField.Text;
            ListOfCharacters[CharactersList.SelectedIndex].max_live_points_= int.Parse(MaxLivePointsField.Text);

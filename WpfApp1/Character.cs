@@ -35,42 +35,42 @@ namespace WpfApp1
         public string owner_
         {
             get { return Owner; }
-            set { Owner = owner_; }
+            set { Owner = value; }
         }
         public BitmapImage alias_
         {
             get { return Alias; }
-            set { Alias = alias_; }
+            set { Alias = value; }
         }
 
         public string name_
         {
             get { return Name; }
-            set { Name = name_; }
+            set { Name = value; }
         }
 
         public float live_percentage_
         {
             get { return LivePercentage; }
-            set { LivePercentage = live_percentage_; }
+            set { LivePercentage = value; }
         }
 
         public int iniciative_
         {
             get { return Iniciative; }
-            set { Iniciative = iniciative_; }
+            set { Iniciative = value; }
         }
 
         public int max_live_points_
         {
             get { return MaxLivePoints; }
-            set { MaxLivePoints = max_live_points_; }
+            set { MaxLivePoints = value; }
         }
 
         public int actual_live_points_
         {
             get { return ActualLivePoints; }
-            set { MaxLivePoints = actual_live_points_; }
+            set { ActualLivePoints = value; }
         }
 
         public string allignment_
