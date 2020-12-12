@@ -14,17 +14,20 @@ namespace WpfApp1
         /// </summary>
         private string Name;
         private string Owner;
+        private string Allignment;
         private float LivePercentage;
         private int MaxLivePoints;
         private int ActualLivePoints;
         private int Iniciative;
         private BitmapImage Alias;
 
-        public Character(string name, int LivePoints, int initiative)
+        public Character(string name, string allignment, string owner, int max_live_points, int initiative )
         {
             Name = name;
-            MaxLivePoints = LivePoints;
-            ActualLivePoints = LivePoints;
+            Allignment = allignment;
+            Owner = owner;
+            MaxLivePoints = max_live_points;
+            ActualLivePoints = max_live_points;
             CalculateLivePercentage();
             Iniciative = initiative;
         }
@@ -68,6 +71,12 @@ namespace WpfApp1
         {
             get { return ActualLivePoints; }
             set { MaxLivePoints = actual_live_points_; }
+        }
+
+        public string allignment_
+        {
+            get { return Allignment; }
+            set { Allignment = value; }
         }
 
         public void CalculateLivePercentage()

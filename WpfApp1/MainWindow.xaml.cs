@@ -27,11 +27,14 @@ namespace WpfApp1
         string mapImagePath="";
         Map map;
         GridModalWindow gridMw;
+        Character character;
+        List<Character> ListOfCharacters;
 
         /// global variables
         public MainWindow()
         {
             InitializeComponent();
+            ListOfCharacters = new List<Character>();
         }
 
         private void MenuPlikExit_Click(object sender, RoutedEventArgs e)
@@ -104,14 +107,38 @@ namespace WpfApp1
 
         private void CharactersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            NameField.Text = ListOfCharacters[CharactersList.SelectedIndex].name_;
+            AlignmentField.Text = ListOfCharacters[CharactersList.SelectedIndex].allignment_;
+            OwnerNameField.Text = ListOfCharacters[CharactersList.SelectedIndex].owner_;
+            MaxLivePointsField.Text = ListOfCharacters[CharactersList.SelectedIndex].max_live_points_.ToString();
+            ActualLivePointsField.Text = ListOfCharacters[CharactersList.SelectedIndex].actual_live_points_.ToString();
+            InitiativeField.Text = ListOfCharacters[CharactersList.SelectedIndex].iniciative_.ToString();
         }
 
         private void AddCharacter_Click(object sender, RoutedEventArgs e)
         {
-            //////////////////////////////////////////////////////////////////////////////////////////////////////TO DO Otwierane okno gdzie się ustawia parametry + lista obiektów!!!
-            Character character = new Character("Buldog", 240,30);
+            ////////////////////////////////////////TO DO Dodawanie Aliasu!!!
+            character = new Character(NameField.Text.ToString(),AlignmentField.Text.ToString(),OwnerNameField.Text.ToString(),int.Parse(MaxLivePointsField.Text.ToString()),int.Parse(InitiativeField.Text.ToString()));
+            ListOfCharacters.Add(character);
             CharactersList.Items.Add(character);
+        }
+
+        private void DeleteCharacter_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(CharactersList.SelectedIndex.ToString());
+            ListOfCharacters.RemoveAt(CharactersList.SelectedIndex);
+            CharactersList.Items.RemoveAt(CharactersList.SelectedIndex);
+        }
+
+        private void ApplyChanges_Click(object sender, RoutedEventArgs e) // TO DO Nie update'uje wartości w liście!
+        {
+            ListOfCharacters[CharactersList.SelectedIndex].name_ = NameField.Text;
+           ListOfCharacters[CharactersList.SelectedIndex].allignment_ = AlignmentField.Text;
+           ListOfCharacters[CharactersList.SelectedIndex].owner_ = OwnerNameField.Text;
+           ListOfCharacters[CharactersList.SelectedIndex].max_live_points_= int.Parse(MaxLivePointsField.Text);
+           ListOfCharacters[CharactersList.SelectedIndex].actual_live_points_ = int.Parse(ActualLivePointsField.Text);
+           ListOfCharacters[CharactersList.SelectedIndex].iniciative_ = int.Parse(InitiativeField.Text);
+           ListOfCharacters[CharactersList.SelectedIndex].CalculateLivePercentage();
         }
     }
 }

@@ -34,32 +34,37 @@
                                         <ColumnDefinition Width="200" />
                                     </Grid.ColumnDefinitions>
                                     <TextBlock Text="{Binding name_}" />
-                                    <ProgressBar Grid.Column="1" Minimum="0.0" Maximum="100.0" Value="{Binding live_percentage_}" />
+                                    <TextBlock Text="{Binding live_percentage_ }" Margin="150,0,0,0"/>
+                                    <ProgressBar Grid.Column="1" Minimum="0.0" Maximum="100.0" Value="{Binding live_percentage_}"/>
                                 </Grid>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
                     <Button Margin="10 10 10 10" Name="AddCharacter" Click="AddCharacter_Click">Dodaj</Button>
-                    <Button Margin="10 10 10 10">Usuń</Button>
-                    <Button Margin="10 10 10 10">Edytuj</Button>
+                    <Button Margin="10 10 10 10" Name="DeleteCharacter" Click="DeleteCharacter_Click">Usuń</Button>
+                    <Button Margin="10 10 10 10" Name="ApplyChanges" Click="ApplyChanges_Click">Zatwierdź zmianę</Button>
                 </WrapPanel>
                 <StackPanel Orientation="Horizontal"> 
                    <WrapPanel Orientation="Vertical"  Margin="10, 10, 0, 10" Width="150" Background="#FF88C358" >
                         <TextBlock TextWrapping="Wrap" Text="Name" Margin="10, 10, 10, 0"/>
-                        <TextBox Height="23" TextWrapping="Wrap" Text="Name" Width="120" Margin="10, 0, 10, 10"/>
+                        <TextBox Height="23" TextWrapping="Wrap" Text="Name" Width="120" Margin="10, 0, 10, 10" Name="NameField"/>
+                        <TextBlock TextWrapping="Wrap" Text="Alignment" Margin="10, 10, 10, 0"/>
+                        <TextBox Height="23" TextWrapping="Wrap" Text="Alignment" Width="120" Margin="10, 0, 10, 10" Name="AlignmentField"/>
                         <TextBlock TextWrapping="Wrap" Text="Owner" Margin="10, 10, 10, 0"/>
-                        <TextBox Height="23" TextWrapping="Wrap" Text="Owner" Width="120" Margin="10, 0, 10, 10"/>
-                        <TextBlock TextWrapping="Wrap" Text="Owner" Margin="10, 10, 10, 0"/>
-                        <TextBox Height="23" TextWrapping="Wrap" Text="Owner" Width="120" Margin="10, 0, 10, 10"/>
+                        <TextBox Height="23" TextWrapping="Wrap" Text="Owner" Width="120" Margin="10, 0, 10, 10" Name="OwnerNameField"/>
                         <TextBlock TextWrapping="Wrap" Text="Max Live Points" Margin="10, 10, 10, 0"/>
-                        <TextBox Height="23" TextWrapping="Wrap" Text="0" Width="120" Margin="10, 0, 10, 10"/>
+                        <TextBox Height="23" TextWrapping="Wrap" Text="0" Width="120" Margin="10, 0, 10, 10" Name="MaxLivePointsField"/>
                         <TextBlock TextWrapping="Wrap" Text="Actual Live Points" Margin="10, 10, 10, 0"/>
-                        <TextBox Height="23" TextWrapping="Wrap" Text="0" Width="120" Margin="10, 0, 10, 10"/>
+                        <TextBox Height="23" TextWrapping="Wrap" Text="0" Width="120" Margin="10, 0, 10, 10" Name="ActualLivePointsField"/>
                         <TextBlock TextWrapping="Wrap" Text="Initiative" Margin="10, 10, 10, 0"/>
-                        <TextBox Height="23" TextWrapping="Wrap" Text="0" Width="120" Margin="10, 0, 10, 10"/>
+                        <TextBox Height="23" TextWrapping="Wrap" Text="0" Width="120" Margin="10, 0, 10, 10" Name="InitiativeField"/>
                     </WrapPanel>
                     <WrapPanel Orientation="Vertical"  Margin="0, 10, 10, 10" Width="150" Background="#FF88C358" >
-                        
+                        <Border Height="100" Width="100" Background="#FFCFC9C9" Margin="25, 25, 25, 25">
+                            <Image Stretch="Fill" Name="AliasImage"/>
+                        </Border>
+                        <Button Margin="10, 5, 10, 5">Dodaj alias</Button>
+                        <Button Margin="10, 5, 10, 5">Usuń alias</Button>
                     </WrapPanel>
                 </StackPanel>
             </StackPanel>
