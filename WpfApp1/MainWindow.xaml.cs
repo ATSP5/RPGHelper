@@ -121,6 +121,7 @@ namespace WpfApp1
             character = new Character(NameField.Text.ToString(),AlignmentField.Text.ToString(),OwnerNameField.Text.ToString(),int.Parse(MaxLivePointsField.Text.ToString()),int.Parse(InitiativeField.Text.ToString()));
             ListOfCharacters.Add(character);
             CharactersList.Items.Add(character);
+          
         }
 
         private void DeleteCharacter_Click(object sender, RoutedEventArgs e)
@@ -132,13 +133,21 @@ namespace WpfApp1
 
         private void ApplyChanges_Click(object sender, RoutedEventArgs e) // TO DO Nie update'uje wartości w liście!
         {
-           ListOfCharacters[CharactersList.SelectedIndex].name_ = NameField.Text;
-           ListOfCharacters[CharactersList.SelectedIndex].allignment_ = AlignmentField.Text;
-           ListOfCharacters[CharactersList.SelectedIndex].owner_ = OwnerNameField.Text;
-           ListOfCharacters[CharactersList.SelectedIndex].max_live_points_= int.Parse(MaxLivePointsField.Text);
-           ListOfCharacters[CharactersList.SelectedIndex].actual_live_points_ = int.Parse(ActualLivePointsField.Text);
-           ListOfCharacters[CharactersList.SelectedIndex].iniciative_ = int.Parse(InitiativeField.Text);
-           ListOfCharacters[CharactersList.SelectedIndex].CalculateLivePercentage();
+            try
+            {
+                ListOfCharacters[CharactersList.SelectedIndex].name_ = NameField.Text;
+                ListOfCharacters[CharactersList.SelectedIndex].allignment_ = AlignmentField.Text;
+                ListOfCharacters[CharactersList.SelectedIndex].owner_ = OwnerNameField.Text;
+                ListOfCharacters[CharactersList.SelectedIndex].max_live_points_ = int.Parse(MaxLivePointsField.Text);
+                ListOfCharacters[CharactersList.SelectedIndex].actual_live_points_ = int.Parse(ActualLivePointsField.Text);
+                ListOfCharacters[CharactersList.SelectedIndex].iniciative_ = int.Parse(InitiativeField.Text);
+                ListOfCharacters[CharactersList.SelectedIndex].CalculateLivePercentage();
+            }
+            catch
+            {
+                MessageBox.Show("Wprowadzono nieprawidłowy typ danych!");
+            }
+           
         }
     }
 }

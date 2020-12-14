@@ -7,7 +7,11 @@
         mc:Ignorable="d"
         Title="RPG Helper" Height="450" Width="800" Name="RPGMainWindow" SizeChanged="RPGMainWindow_SizeChanged" Closing="RPGMainWindow_Closing">
     <Grid Background="#FF196ADE" >
-        <DockPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="83*"/>
+            <ColumnDefinition Width="181*"/>
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.ColumnSpan="2">
             <Menu DockPanel.Dock="Top" Height="20" VerticalAlignment="Top" Width="800" Name="MainMenu">
                 <MenuItem Header="Plik" Name="MenuPlik">
                     <MenuItem Header="Exit" Name="MenuPlikExit" Click="MenuPlikExit_Click"/>
@@ -33,9 +37,9 @@
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="200" />
                                     </Grid.ColumnDefinitions>
-                                    <TextBlock Text="{Binding name_}" />
-                                    <TextBlock Text="{Binding live_percentage_ }" Margin="150,0,0,0"/>
-                                    <ProgressBar Grid.Column="1" Minimum="0.0" Maximum="100.0" Value="{Binding live_percentage_}"/>
+                                    <TextBlock Text="" Name="ItemTemplateNameField"/>
+                                    <TextBlock Text="" Margin="150,0,0,0" Name="ItemTemplatePercentage"/>
+                                    <ProgressBar Grid.Column="1" Minimum="0.0" Maximum="100.0" Value="0" Name="ItemTemplateProgressBar"/>
                                 </Grid>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -44,8 +48,8 @@
                     <Button Margin="10 10 10 10" Name="DeleteCharacter" Click="DeleteCharacter_Click">Usuń</Button>
                     <Button Margin="10 10 10 10" Name="ApplyChanges" Click="ApplyChanges_Click">Zatwierdź zmianę</Button>
                 </WrapPanel>
-                <StackPanel Orientation="Horizontal"> 
-                   <WrapPanel Orientation="Vertical"  Margin="10, 10, 0, 10" Width="150" Background="#FF88C358" >
+                <StackPanel Orientation="Horizontal">
+                    <WrapPanel Orientation="Vertical"  Margin="10, 10, 0, 10" Width="150" Background="#FF88C358" >
                         <TextBlock TextWrapping="Wrap" Text="Name" Margin="10, 10, 10, 0"/>
                         <TextBox Height="23" TextWrapping="Wrap" Text="Name" Width="120" Margin="10, 0, 10, 10" Name="NameField"/>
                         <TextBlock TextWrapping="Wrap" Text="Alignment" Margin="10, 10, 10, 0"/>
