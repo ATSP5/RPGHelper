@@ -37,9 +37,9 @@
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="200" />
                                     </Grid.ColumnDefinitions>
-                                    <TextBlock Text="" Name="ItemTemplateNameField"/>
-                                    <TextBlock Text="" Margin="150,0,0,0" Name="ItemTemplatePercentage"/>
-                                    <ProgressBar Grid.Column="1" Minimum="0.0" Maximum="100.0" Value="0" Name="ItemTemplateProgressBar"/>
+                                    <TextBlock Text="{Binding name_}"/>
+                                    <TextBlock Text="{Binding percentage_}" Margin="150,0,0,0"/>
+                                    <ProgressBar Grid.Column="1" Minimum="0.0" Maximum="100.0" Value="{Binding percentage_}"/>
                                 </Grid>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
